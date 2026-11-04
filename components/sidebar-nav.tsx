@@ -33,9 +33,7 @@ export function SidebarNav() {
             <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-[#667085]">
               Cyber intelligence
             </p>
-            <h1 className="text-lg font-semibold text-[#111827]">
-              Phishing Guard
-            </h1>
+            <h1 className="text-lg font-semibold text-[#111827]">PhisherMan</h1>
           </div>
         </div>
 

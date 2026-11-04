@@ -1,6 +1,6 @@
-# Phishing Guard
+# PhisherMan
 
-Phishing Guard is a browser-based phishing awareness and triage dashboard. It
+PhisherMan is a browser-based phishing awareness and triage dashboard. It
 analyses URLs, pasted email messages, and website URL structures for common
 phishing indicators, then presents a risk score, classification, triggered
 rules, and a recommended action.
@@ -69,7 +69,7 @@ The history keeps the 40 most recent entries.
 ### URL Scanner
 
 1. Enter a URL or domain, with or without `http://` or `https://`.
-2. Phishing Guard normalises domains without a protocol to `https://`.
+2. PhisherMan normalises domains without a protocol to `https://`.
 3. The scanner parses the hostname, path, query string, and full URL.
 4. It evaluates the following indicators:
    - IP address used as the hostname
@@ -141,11 +141,11 @@ browser profile and device where the scan was performed.
 
 All tools produce a score from 0 to 100 and use the following classifications:
 
-| Classification | Score and meaning | Recommended response |
-| --- | --- | --- |
-| **Low Risk** | Below 30; no strong indicators were found in the supplied content or URL structure. | Continue cautiously and verify the destination before entering credentials. |
-| **Suspicious** | 30-59; several characteristics resemble deceptive activity. | Confirm the domain or sender through an official channel and avoid rushed actions. |
-| **Potential Phishing** | 60 or higher, or a strong brand-impersonation match. | Do not enter credentials or personal information; avoid the link and report it where appropriate. |
+| Classification         | Score and meaning                                                                   | Recommended response                                                                              |
+| ---------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Low Risk**           | Below 30; no strong indicators were found in the supplied content or URL structure. | Continue cautiously and verify the destination before entering credentials.                       |
+| **Suspicious**         | 30-59; several characteristics resemble deceptive activity.                         | Confirm the domain or sender through an official channel and avoid rushed actions.                |
+| **Potential Phishing** | 60 or higher, or a strong brand-impersonation match.                                | Do not enter credentials or personal information; avoid the link and report it where appropriate. |
 
 Scores are heuristic signals, not proof that a message or website is safe or
 malicious. A low score can still represent a threat, and a high score should

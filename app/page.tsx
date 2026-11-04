@@ -140,7 +140,7 @@ export default function Home() {
                   Cyber intelligence
                 </p>
                 <h1 className="text-xl font-semibold tracking-tight text-[#111827]">
-                  Phishing Guard
+                  PhisherMan
                 </h1>
               </div>
             </div>

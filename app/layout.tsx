@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Phishing Guard",
+  title: "PhisherMan",
   description:
     "Rule-based phishing URL detection dashboard built with Next.js and Tailwind CSS.",
 };
