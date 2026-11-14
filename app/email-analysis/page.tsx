@@ -76,9 +76,9 @@ export default function EmailAnalysisPage() {
     : "bg-[#0f172a]";
 
   return (
-    <div className="space-y-6">
-      <div className="border border-[#dfe3e8] bg-white p-6">
-        <div className="mb-4 flex items-center gap-3">
+    <div className="mx-auto w-full max-w-5xl space-y-5">
+      <div className="border border-[#dfe3e8] bg-white p-4 sm:p-6">
+        <div className="mb-5 flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center border border-[#dfe3e8] bg-[#f8f9fa]">
             <Mail className="h-4 w-4" />
           </div>
@@ -86,7 +86,7 @@ export default function EmailAnalysisPage() {
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#667085]">
               Email analysis
             </p>
-            <h2 className="text-2xl font-semibold text-[#111827]">
+            <h2 className="text-xl font-semibold text-[#111827] sm:text-2xl">
               Assess a suspicious email
             </h2>
           </div>
@@ -118,12 +118,12 @@ export default function EmailAnalysisPage() {
           </div>
         </div>
 
-        <div className="mt-5 flex flex-wrap gap-3">
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <button
             type="button"
             onClick={handleAnalyse}
             disabled={isLoading}
-            className="flex items-center gap-2 border border-[#111827] bg-[#111827] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#1f2937] disabled:cursor-not-allowed disabled:opacity-70"
+            className="flex items-center justify-center gap-2 border border-[#111827] bg-[#111827] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#1f2937] disabled:cursor-not-allowed disabled:opacity-70 sm:justify-start"
           >
             {isLoading ? (
               <>
@@ -158,8 +158,8 @@ export default function EmailAnalysisPage() {
       </div>
 
       {result && (
-        <div className="space-y-6 border border-[#dfe3e8] bg-white p-6">
-          <div className="flex items-center justify-between gap-4">
+        <div className="space-y-5 border border-[#dfe3e8] bg-white p-4 sm:space-y-6 sm:p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center border border-[#dfe3e8] bg-[#f8f9fa]">
                 <ShieldAlert className="h-4 w-4" />

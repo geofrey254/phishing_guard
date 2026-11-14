@@ -1,9 +1,8 @@
-# PhisherMan
+# PhishGuard
 
-PhisherMan is a browser-based phishing awareness and triage dashboard. It
-analyses URLs, pasted email messages, and website URL structures for common
-phishing indicators, then presents a risk score, classification, triggered
-rules, and a recommended action.
+PhishGuard is a browser-based phishing email awareness and triage tool. It
+analyses pasted email messages for common phishing indicators, then presents a
+risk score, classification, triggered rules, and a recommended action.
 
 The project is designed for quick, explainable checks. It does not open or
 fetch remote websites, inspect live page content, verify sender infrastructure,
@@ -11,14 +10,10 @@ or replace a security product or human investigation.
 
 ## Features
 
-- URL scanning with explainable, rule-based indicators
 - Email analysis for suspicious wording, links, financial requests, and
   impersonation
-- Website URL analysis with additional brand-variant and hostname checks
 - Risk classifications and recommended next steps
-- Unified scan history with type and risk filters
 - Local-only history storage in the browser
-- Responsive dashboard UI for desktop and smaller screens
 
 ## How to run the project
 
@@ -51,41 +46,12 @@ npm run start   # Start the production server after building
 
 ## Using the dashboard
 
-The sidebar provides five areas:
+The application opens directly to **Email Analysis** (`/email-analysis`),
+where you can analyse an email subject and body. Each completed analysis is
+saved locally for continuity, but no other analysis modes are exposed in the
+application navigation.
 
-- **Dashboard** (`/`) - Overview of the available analysis tools and recent
-  scan activity.
-- **URL Scanner** (`/url-analysis`) - Analyse a URL or domain name.
-- **Email Analysis** (`/email-analysis`) - Analyse an email subject and body.
-- **Website Analysis** (`/website-analysis`) - Analyse website URL structure
-  using website-focused rules.
-- **Scan History** (`/history`) - Review, filter, and delete saved results.
-
-Each completed URL, email, or website analysis is added to the history list.
-The history keeps the 40 most recent entries.
-
-## How each tool works
-
-### URL Scanner
-
-1. Enter a URL or domain, with or without `http://` or `https://`.
-2. PhisherMan normalises domains without a protocol to `https://`.
-3. The scanner parses the hostname, path, query string, and full URL.
-4. It evaluates the following indicators:
-   - IP address used as the hostname
-   - Suspicious words such as `login`, `verify`, `secure`, `account`, or
-     `password`
-   - A URL containing an `@` symbol
-   - Excessive subdomains
-   - Suspicious terms in the path or query string
-   - A hostname that resembles a known brand
-5. The tool adds the score for each triggered rule, caps the result at 100,
-   classifies the result, and displays the rule explanations.
-
-Supported protocols are HTTP and HTTPS. Invalid or empty input is rejected
-before analysis.
-
-### Email Analysis
+## How email analysis works
 
 1. Paste the email subject and message body.
 2. The analyser combines both fields and compares the text case-insensitively
@@ -105,35 +71,7 @@ before analysis.
 The email body is required. The subject may be blank, in which case the
 analysis labels it as “No subject provided”.
 
-### Website Analysis
-
-Website Analysis is a URL-only inspection with a separate set of rules aimed
-at deceptive website structures. It checks for:
-
-- An IP address or other raw address used as the hostname
-- Brand impersonation using lookalike names, repeated characters, digit
-  substitutions, or small spelling differences
-- Suspicious domain or path words such as `login`, `verify`, `payment`, or
-  `support`
-- More than two subdomain levels
-- An `@` character in the full URL
-- Credential-related or urgent wording in the path and query string
-
-This tool does not download the website or analyse its HTML, scripts,
-certificates, redirects, or hosting provider.
-
-### Scan History
-
-History combines results from all three analysis tools. Each record stores the
-analysis type, reference label, score, classification, summary, and timestamp.
-You can:
-
-- Filter by analysis type: URL, Email, Website, or All
-- Filter by classification: Low Risk, Suspicious, Potential Phishing, or All
-- Select a record to view its score and summary
-- Delete individual records
-
-History is saved with the browser `localStorage` key
+Analysis history is saved with the browser `localStorage` key
 `phishing-guard-history`. It is not sent to a server and is specific to the
 browser profile and device where the scan was performed.
 
@@ -164,16 +102,12 @@ be investigated using additional security controls.
 
 ```text
 app/
-  page.tsx                    Dashboard
-  url-analysis/page.tsx      URL Scanner
+  page.tsx                    Redirect to Email Analysis
   email-analysis/page.tsx    Email Analysis
-  website-analysis/page.tsx  Website Analysis
-  history/page.tsx           Scan History
 components/                  Shared UI components
 lib/
-  detection.ts               URL rules, scoring, and shared risk types
+  detection.ts               Shared risk types and scoring helpers
   email-analysis.ts          Email rules and scoring
-  website-analysis.ts        Website URL rules and scoring
   history.ts                 Browser history persistence
 ```
 

@@ -2,29 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  BarChart3,
-  Globe,
-  History,
-  Mail,
-  Search,
-  ShieldAlert,
-} from "lucide-react";
+import { Mail, ShieldAlert } from "lucide-react";
 
 const navItems = [
-  { href: "/", label: "Dashboard", icon: BarChart3 },
-  { href: "/url-analysis", label: "URL Scanner", icon: Search },
   { href: "/email-analysis", label: "Email Analysis", icon: Mail },
-  { href: "/website-analysis", label: "Website Analysis", icon: Globe },
-  { href: "/history", label: "Scan History", icon: History },
 ];
 
 export function SidebarNav() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-full border-b border-[#e4e7ec] bg-white md:w-64 md:border-b-0 md:border-r">
-      <div className="flex h-full flex-col p-4 md:p-5">
+    <aside className="w-full shrink-0 border-b border-[#e4e7ec] bg-white md:min-h-screen md:w-64 md:border-b-0 md:border-r">
+      <div className="flex h-full flex-col p-3 sm:p-4 md:p-5">
         <div className="mb-6 flex items-center gap-3 px-2 py-1">
           <div className="flex h-10 w-10 items-center justify-center border border-[#dfe3e8] bg-[#f8f9fa] text-[#111827]">
             <ShieldAlert className="h-5 w-5" />
@@ -33,7 +22,7 @@ export function SidebarNav() {
             <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-[#667085]">
               Cyber intelligence
             </p>
-            <h1 className="text-lg font-semibold text-[#111827]">PhisherMan</h1>
+            <h1 className="text-lg font-semibold text-[#111827]">PhishGuard</h1>
           </div>
         </div>
 

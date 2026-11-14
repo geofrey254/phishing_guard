@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PhisherMan",
+  title: "PhishGuard",
   description:
-    "Rule-based phishing URL detection dashboard built with Next.js and Tailwind CSS.",
+    "Rule-based phishing email analysis built with Next.js and Tailwind CSS.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -26,11 +26,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#f5f5f3] text-[#101828]">
+      <body className="min-h-screen bg-[#f5f5f3] text-[#101828]">
         <div className="min-h-screen bg-[#f5f5f3]">
-          <div className="mx-auto flex max-w-7xl flex-col md:flex-row">
+          <div className="mx-auto flex min-h-screen max-w-7xl flex-col md:flex-row">
             <SidebarNav />
-            <main className="flex-1 p-4 md:p-6">{children}</main>
+            <main className="min-w-0 flex-1 p-3 sm:p-4 md:p-6 lg:p-8">
+              {children}
+            </main>
           </div>
         </div>
       </body>
